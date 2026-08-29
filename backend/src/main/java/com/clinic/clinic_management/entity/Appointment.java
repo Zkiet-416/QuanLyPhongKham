@@ -1,6 +1,7 @@
 package com.clinic.clinic_management.entity;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments")
@@ -11,9 +12,9 @@ public class Appointment {
     private Integer id;
 
     @Column(name = "appointment_date", nullable = false)
-    private String appointmentDate;
+    private LocalDateTime appointmentDate;
     
-    @Column(name = "reason", nullable = false)
+    @Column(name = "reason")
     private String reason;
 
     @Column(name = "status", nullable = false)
@@ -28,7 +29,7 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(Integer id, String appointmentDate, String reason, String status, Integer doctorId, Integer patientId) {
+    public Appointment(Integer id, LocalDateTime appointmentDate, String reason, String status, Integer doctorId, Integer patientId) {
         this.id = id;
         this.appointmentDate = appointmentDate;
         this.reason = reason;
@@ -45,11 +46,11 @@ public class Appointment {
         this.id = id;
     }
 
-    public String getAppointmentDate() {
+    public LocalDateTime getAppointmentDate() {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(String appointmentDate) {
+    public void setAppointmentDate(LocalDateTime appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 
